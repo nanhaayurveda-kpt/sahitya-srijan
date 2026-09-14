@@ -5,16 +5,17 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import SiteSearch from "./SiteSearch";
 
-export const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/world", label: "World" },
-  { href: "/india", label: "India" },
-  { href: "/programmers", label: "प्रोग्रामर्स" },
-  { href: "/academics", label: "Academics" },
-  { href: "/health", label: "Health" },
-  { href: "/vividha", label: "विविध" },
-  { href: "/pagar-peeda", label: "पगार-पीड़ा" },
-  { href: "/udvelit-janta", label: "उद्वेलित जनता" },
+type NavItem = { href: string; label: string };
+
+export const navItems: NavItem[] = [
+  { href: "/", label: "होम" },
+  { href: "/sahitya", label: "साहित्य" },
+  { href: "/samachar", label: "समाचार" },
+  { href: "/rajniti-shasan", label: "राजनीति-शासन" },
+  { href: "/samaj", label: "समाज" },
+  { href: "/sanskriti-dharm", label: "संस्कृति-धर्म" },
+  { href: "/jivanshaili", label: "जीवनशैली" },
+  { href: "/arth-paryavaran", label: "अर्थ-पर्यावरण" },
 ];
 
 const Navbar = () => {
@@ -27,14 +28,14 @@ const Navbar = () => {
           <Link href="/" className="flex flex-col items-center sm:items-start">
             <Image
               src="/logo.jpeg"
-              alt="हमारा मोर्चा"
+              alt="साहित्य सृजन संवाद"
               width={300}
               height={80}
               priority
               className="object-contain w-56 sm:w-64 lg:w-[300px] h-auto"
             />
             <p className="mt-2 text-sm md:text-base font-semibold tracking-wide text-green-700">
-              A struggle for dignity and livelihood
+              कला संस्कृति चिंतन का पोर्टल
             </p>
           </Link>
         </div>
