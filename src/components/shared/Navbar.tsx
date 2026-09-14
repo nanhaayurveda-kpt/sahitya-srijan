@@ -3,9 +3,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { Noto_Serif_Devanagari } from "next/font/google";
 import SiteSearch from "./SiteSearch";
 
-type NavItem = { href: string; label: string };
+const serifDev = Noto_Serif_Devanagari({
+  subsets: ["devanagari"],
+  weight: ["500"],
+});
+
+type NavItem = {
+  href: string;
+  label: string;
+};
 
 export const navItems: NavItem[] = [
   { href: "/", label: "होम" },
@@ -23,47 +32,41 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className="bg-zinc-400">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-center sm:justify-start">
-          <Link href="/" className="flex flex-col items-center sm:items-start">
+      <div className="bg-[#F3ECDC]">
+        <div className="max-w-5xl mx-auto px-4 py-10 flex flex-col items-center text-center">
+          <Link href="/" className="flex flex-col items-center">
             <Image
               src="/logo.jpeg"
               alt="साहित्य सृजन संवाद"
-              width={300}
-              height={80}
+              width={220}
+              height={220}
               priority
-              className="object-contain w-56 sm:w-64 lg:w-[300px] h-auto"
+              className="object-contain w-40 sm:w-48 h-auto"
             />
-            <p className="mt-2 text-sm md:text-base font-semibold tracking-wide text-green-700">
+
+            <p
+              className={`${serifDev.className} mt-4 text-base sm:text-lg text-[#2B2420] italic`}
+            >
               कला संस्कृति चिंतन का पोर्टल
             </p>
           </Link>
-        </div>
 
-        <div className="max-w-7xl mx-auto px-4 pb-4 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
-          <p className="text-sm sm:text-base text-rose-600 font-bold text-center">
-            Need a Website, Software or Mobile App? Contact us today.
-          </p>
-          <a
-            href="tel:+919996865069"
-            className="text-indigo-700 font-bold text-base sm:text-lg whitespace-nowrap"
-          >
-            +91 9996865069
-          </a>
+          <div className="mt-6 w-24 border-t-2 border-[#B98D3E]" />
+          <div className="mt-1 w-24 border-t border-[#B98D3E]" />
         </div>
       </div>
 
-      <nav className="shadow-md border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ul className="flex flex-wrap justify-between gap-y-1 py-2">
+      <nav className="bg-[#2B2420] shadow-md">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ul className="flex flex-wrap justify-center gap-x-1 gap-y-1 py-2">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   className={`block whitespace-nowrap rounded px-3 py-2 text-sm sm:text-base transition-colors ${
                     pathname === item.href
-                      ? "bg-red-500 text-white font-semibold"
-                      : "text-gray-700 hover:bg-gray-100 hover:text-red-500"
+                      ? "bg-[#7A2E2E] text-[#F3ECDC] font-semibold"
+                      : "text-[#F3ECDC]/80 hover:text-[#F3ECDC]"
                   }`}
                 >
                   {item.label}
@@ -72,7 +75,7 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <div className="pb-3 flex justify-center sm:justify-end">
+          <div className="pb-3 flex justify-center">
             <SiteSearch />
           </div>
         </div>
