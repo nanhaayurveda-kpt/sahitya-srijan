@@ -1,30 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteDescription =
-  "सफेदपोश यानि कि मामूली वेतन पर खटने वाले बुद्धिजीवियों के भी सम्मान और रोज़ी-रोटी की लड़ाई।";
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.hamaramorcha.com"),
+  metadataBase: new URL("https://www.sahityasrijanwasamvad.online"),
   title: {
-    default: "हमारा मोर्चा",
-    template: "%s | हमारा मोर्चा",
+    default: "साहित्य सृजन संवाद",
+    template: "%s | साहित्य सृजन संवाद",
   },
-  description: siteDescription,
-  openGraph: {
-    type: "website",
-    locale: "hi_IN",
-    siteName: "हमारा मोर्चा",
-    title: "हमारा मोर्चा",
-    description: siteDescription,
-    images: ["/og-image.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "हमारा मोर्चा",
-    description: siteDescription,
-    images: ["/og-image.jpg"],
-  },
+  description: "कला संस्कृति चिंतन का पोर्टल।",
 };
 
 export default function RootLayout({
